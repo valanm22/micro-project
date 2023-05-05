@@ -21,7 +21,7 @@ $ cd micro-project
 # creating venv
 $ python3 -m venv your_env_name
 # activating the venv
-$ your_env_name\Scripts\activate
+$ source your_env_name/bin/activate
 # installing the required packages
 $ pip install -r requirements.txt
 ```
@@ -30,9 +30,9 @@ $ pip install -r requirements.txt
 
 ```diff
 # exporting app to environment variable
-$ set FLASK_APP=run.py
+$ export FLASK_APP=run.py
 # mentioning environment type
-$ set FLASK_ENV=development
+$ export FLASK_ENV=development
 # running app
 $ flask run
 ```
