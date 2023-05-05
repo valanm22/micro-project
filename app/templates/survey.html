@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Survey</title>
+</head>
+<body>
+    <body>
+        <div class="container">
+            <h2>{{ question }}</h2>
+            <form method="post">
+                <input type="text" name="answer">
+                <br>
+                <input type="hidden" name="question_index" value="{{ question_index }}">
+                <br>
+                {% if question_index > 0 %}
+                    <input type="submit" name="previous" value="Previous">
+                {% endif %}
+                
+                <input type="submit" value="Next">
+            <p>See some of the survey results <a href="/results">here.</a></p>
+            </form>
+        </div>
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+        }
+    </script>
+</body>
+</html>

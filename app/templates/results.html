@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Results</title>
+</head>
+<body>
+    <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>survey_id</th>
+            <th>store_name</th>
+            <th>gift_card_balance</th>
+            <th>gift_card_selling_price</th>
+            <th>cypto_network</th>
+            <th>wallet_address</th>
+            <th>email</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for record in records %}
+          <tr>
+            <td>{{ loop.index0 + 1 }}</td>
+            <td>{{ record['id'] }}</td>
+            <td>{% if record.get('0') %}{{ record['0'] }}{% else %}n/a{% endif %}</td>
+            <td>{% if record.get('1') %}{{ record['1'] }}{% else %}n/a{% endif %}</td>
+            <td>{% if record.get('2') %}{{ record['2'] }}{% else %}n/a{% endif %}</td>
+            <td>{% if record.get('3') %}{{ record['3'] }}{% else %}n/a{% endif %}</td>
+            <td>{% if record.get('4') %}{{ record['4'] }}{% else %}n/a{% endif %}</td>
+            <td>{% if record.get('5') %}{{ record['5'] }}{% else %}n/a{% endif %}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+ 
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
